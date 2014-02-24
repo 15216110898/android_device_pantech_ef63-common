@@ -86,7 +86,6 @@ on post-fs-data
     mkdir /tombstones/dsps 0771 system system
 
 on boot
-    start imsqmidaemon
 
     # PANTECH_PMIC_MONITOR_TEST
     chmod 0660 /dev/qcom,qpnp-charger
@@ -292,7 +291,6 @@ service imsqmidaemon /system/bin/imsqmidaemon
     user system
     socket ims_qmid stream 0660 system radio
     group ims radio net_raw log qcom_diag
-    disabled
 
 # imsdatadaemon starts with root and UID will be downgraded to SYSTEM.
 service imsdatadaemon /system/bin/imsdatadaemon
