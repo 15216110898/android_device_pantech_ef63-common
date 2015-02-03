@@ -200,6 +200,7 @@ PRODUCT_PACKAGES += \
     hostapd_default.conf \
     hostapd.accept \
     hostapd.deny \
+    libwcnss_qmi \
     libwpa_client \
     p2p_supplicant_overlay.conf \
     wcnss_service \
