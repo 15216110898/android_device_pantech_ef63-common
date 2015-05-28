@@ -70,6 +70,7 @@
 <!ELEMENT AudioDecoderCap EMPTY>
 <!ATTLIST AudioDecoderCap name (wma) #REQUIRED>
 <!ATTLIST AudioDecoderCap enabled (true|false) #REQUIRED>
+<<<<<<< HEAD
 <!ELEMENT VideoEditorCap EMPTY>
 <!ATTLIST VideoEditorCap maxInputFrameWidth CDATA #REQUIRED>
 <!ATTLIST VideoEditorCap maxInputFrameHeight CDATA #REQUIRED>
@@ -80,6 +81,16 @@
 <!ATTLIST ExportVideoProfile name (h264|h263|m4v) #REQUIRED>
 <!ATTLIST ExportVideoProfile profile CDATA #REQUIRED>
 <!ATTLIST ExportVideoProfile level CDATA #REQUIRED>
+=======
+<!ELEMENT LgeCamcorderCap EMPTY>
+<!ATTLIST LgeCamcorderCap minfps CDATA #REQUIRED>
+<!ATTLIST LgeCamcorderCap maxfps CDATA #REQUIRED>
+<!ATTLIST LgeCamcorderCap usehighprofile CDATA #REQUIRED>
+<!ATTLIST LgeCamcorderCap audiozoomenable CDATA #REQUIRED>
+<!ATTLIST LgeCamcorderCap audiozoomX CDATA #REQUIRED>
+<!ATTLIST LgeCamcorderCap audiozoomY CDATA #REQUIRED>
+<!ATTLIST LgeCamcorderCap HFRbitrate CDATA #REQUIRED>
+>>>>>>> b81bdbf... g3: remove video editor from media_profiles.xml
 ]>
 <!--
      This file is used to declare the multimedia profiles and capabilities
@@ -419,6 +430,7 @@
     <AudioDecoderCap name="wma" enabled="false"/>
 
     <!--
+<<<<<<< HEAD
         The VideoEditor Capability configuration:
         - maxInputFrameWidth: maximum video width of imported video clip.
         - maxInputFrameHeight: maximum video height of imported video clip.
@@ -452,4 +464,12 @@
       Codec = mpeg4, Simple profile, level 5
     -->
     <ExportVideoProfile name="m4v" profile= "1" level="128"/>
+=======
+    LGE_CHAGE[fefe7270.park] Add LgeCamcorderCap
+    -->
+    <LgeCamcorderCap  minfps="30000" maxfps="30000"
+        usehighprofile="1"  audiozoomenable="1"
+        audiozoomX="14" audiozoomY="4"
+        usehwaac="1"/>
+>>>>>>> b81bdbf... g3: remove video editor from media_profiles.xml
 </MediaSettings>
