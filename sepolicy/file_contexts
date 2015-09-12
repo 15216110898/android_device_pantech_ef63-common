@@ -1,0 +1,6 @@
+# We have a couple of non-standard NV partitions
+
+/data/cam_socket.*                                 u:object_r:camera_socket:s0
+
+/sys/devices/virtual/graphics/fb0/aco              u:object_r:display_sysfs:s0
+/sys/devices/virtual/graphics/fb0/cabc_ctrl             u:object_r:display_sysfs:s0
