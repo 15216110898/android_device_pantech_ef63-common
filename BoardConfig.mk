@@ -50,9 +50,6 @@ TARGET_OTA_ASSERT_DEVICE := ef63s,ef63k,ef63l,IM-A910S,IM-A910K,IM-A910L
 #RELEASETOOLS
 TARGET_RELEASETOOLS_EXTENSIONS := device/pantech/ef63s/releasetools
 
-# inherit from the proprietary version
--include vendor/pantech/ef63s/BoardConfigVendor.mk
-
 # Recovery
 BOARD_HAS_NO_SELECT_BUTTON 		:= true
 BOARD_SUPPRESS_EMMC_WIPE 		:= true
@@ -100,3 +97,6 @@ TW_NO_SCREEN_TIMEOUT 				:= true
 TARGET_RECOVERY_QCOM_RTC_FIX 		:= true
 BOARD_SUPPRESS_SECURE_ERASE 		:= true
 #TW_TARGET_USES_QCOM_BSP				:= true
+
+# inherit from the proprietary version
+-include vendor/pantech/ef63s/BoardConfigVendor.mk
