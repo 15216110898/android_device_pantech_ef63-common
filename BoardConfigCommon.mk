@@ -47,15 +47,8 @@ BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x1000000 --tags_offset 0x00000100
 TARGET_KERNEL_SOURCE := kernel/pantech/msm8x74
 TARGET_KERNEL_ARCH := arm
 
-# Vendor Init
-TARGET_UNIFIED_DEVICE := true
-TARGET_INIT_VENDOR_LIB := libinit_msm
-
-# Flags
-COMMON_GLOBAL_CFLAGS += -DNO_SECURE_DISCARD
-
-# QCOM hardware
-BOARD_USES_QCOM_HARDWARE := true
+# ANT+
+BOARD_ANT_WIRELESS_DEVICE := "vfs-prerelease"
 
 # Audio
 BOARD_USES_ALSA_AUDIO := true
@@ -67,11 +60,29 @@ BOARD_HAVE_BLUETOOTH_QCOM := true
 QCOM_BT_USE_SMD_TTY := true
 BLUETOOTH_HCI_USE_MCT := true
 
+# Board
+BOARD_VENDOR := pantech
+
 # Charger
 BOARD_CHARGER_RES := device/pantech/msm8974-common/charger/images
 
 # CM Hardware
 BOARD_HARDWARE_CLASS := device/pantech/msm8974-common/cmhw
+
+# Encryption
+#TARGET_HW_DISK_ENCRYPTION := true
+
+# Filesystem
+TARGET_USERIMAGES_USE_EXT4 := true
+BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
+BOARD_PERSISTIMAGE_FILE_SYSTEM_TYPE := ext4
+BOARD_FLASH_BLOCK_SIZE := 131072
+
+# Flags
+COMMON_GLOBAL_CFLAGS += -DNO_SECURE_DISCARD
+
+# Fonts
+EXTENDED_FONT_FOOTPRINT := true
 
 # Graphics
 BOARD_EGL_CFG := device/pantech/msm8974-common/configs/egl.cfg
@@ -96,6 +107,36 @@ MAX_EGL_CACHE_SIZE := 2048*1024
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
 
+# Protobuf: Added to indicate that protobuf-c is supported in this build
+PROTOBUF_SUPPORTED := true
+
+# QCOM hardware
+BOARD_USES_QCOM_HARDWARE := true
+
+# QCOM Power
+TARGET_POWERHAL_VARIANT := qcom
+
+# QCRIL
+TARGET_RIL_VARIANT := caf
+
+# Time
+BOARD_USES_QC_TIME_SERVICES := true
+
+# Enable Minikin text layout engine (will be the default soon)
+USE_MINIKIN := true
+
+#WITH_DEXPREOPT := true
+
+# SELinux policies
+include device/qcom/sepolicy/sepolicy.mk
+
+BOARD_SEPOLICY_DIRS += \
+        device/pantech/msm8974-common/sepolicy
+
+# Vendor Init
+TARGET_UNIFIED_DEVICE := true
+TARGET_INIT_VENDOR_LIB := libinit_msm
+
 # Wifi
 BOARD_HAS_QCOM_WLAN := true
 BOARD_WLAN_DEVICE := qcwcn
@@ -109,44 +150,5 @@ WIFI_DRIVER_FW_PATH_AP := "ap"
 WIFI_DRIVER_FW_PATH_STA := "sta"
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 
-# Filesystem
-TARGET_USERIMAGES_USE_EXT4 := true
-BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
-BOARD_PERSISTIMAGE_FILE_SYSTEM_TYPE := ext4
-BOARD_FLASH_BLOCK_SIZE := 131072
-
-# QCRIL
-TARGET_RIL_VARIANT := caf
-
-# Use HW crypto for ODE
-#TARGET_HW_DISK_ENCRYPTION := true
-
-# Added to indicate that protobuf-c is supported in this build
-PROTOBUF_SUPPORTED := true
-
-BOARD_VENDOR := pantech
-# QCOM Power
-TARGET_POWERHAL_VARIANT := qcom
-
-# Time
-BOARD_USES_QC_TIME_SERVICES := true
-
-# ANT+
-BOARD_ANT_WIRELESS_DEVICE := "vfs-prerelease"
-
-# Enable Minikin text layout engine (will be the default soon)
-USE_MINIKIN := true
-
-#WITH_DEXPREOPT := true
-
-# Include an expanded selection of fonts
-EXTENDED_FONT_FOOTPRINT := true
-
-# SELinux policies
-# qcom sepolicy
-include device/qcom/sepolicy/sepolicy.mk
-
-BOARD_SEPOLICY_DIRS += \
-        device/pantech/msm8974-common/sepolicy
-
+# inherit from the proprietary version
 -include vendor/pantech/msm8974-common/BoardConfigVendor.mk

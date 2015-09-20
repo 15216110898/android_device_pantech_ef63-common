@@ -59,6 +59,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
     audio.offload.pcm.16bit.enable=true \
     audio.offload.pcm.24bit.enable=true
 
+# ANT+
+PRODUCT_PACKAGES += \
+    AntHalService \
+    com.dsi.ant.antradio_library \
+    libantradio
+
 # Charger
 PRODUCT_PACKAGES += \
     charger \
@@ -70,6 +76,15 @@ PRODUCT_PACKAGES += \
     e2fsck \
     setup_fs
 
+# GPS
+PRODUCT_PACKAGES += gps.msm8974
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/gps/gps.conf:system/etc/gps.conf \
+    $(LOCAL_PATH)/gps/flp.conf:system/etc/flp.conf \
+    $(LOCAL_PATH)/gps/izat.conf:system/etc/izat.conf \
+    $(LOCAL_PATH)/gps/sap.conf:system/etc/sap.conf
+
 # Graphics
 PRODUCT_PACKAGES += \
     copybit.msm8974 \
@@ -78,24 +93,14 @@ PRODUCT_PACKAGES += \
     memtrack.msm8974 \
     liboverlay
 
-# GPS
-PRODUCT_PACKAGES += \
-    gps.msm8974
+# IPC router config
+PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/sec_config:system/etc/sec_config
 
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/gps/gps.conf:system/etc/gps.conf \
-    $(LOCAL_PATH)/gps/flp.conf:system/etc/flp.conf \
-    $(LOCAL_PATH)/gps/izat.conf:system/etc/izat.conf \
-    $(LOCAL_PATH)/gps/sap.conf:system/etc/sap.conf
-
+# Keystore
+PRODUCT_PACKAGES += keystore.msm8974
 
 # Lights
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/liblight/lights.msm8974.so:system/lib/hw/lights.msm8974.so
-
-# IPC router config
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/sec_config:system/etc/sec_config
+PRODUCT_COPY_FILES += $(LOCAL_PATH)/liblight/lights.msm8974.so:system/lib/hw/lights.msm8974.so
 
 # Media profile
 PRODUCT_COPY_FILES += \
@@ -124,12 +129,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_BOOT_JARS += qcmediaplayer
 
 # Power
-PRODUCT_PACKAGES += \
-    power.msm8974
-
-# Keystore
-PRODUCT_PACKAGES += \
-    keystore.msm8974
+PRODUCT_PACKAGES += power.msm8974
 
 # Rootdir
 PRODUCT_COPY_FILES += \
@@ -142,12 +142,10 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/etc/init.qcom.wifi.sh:system/etc/init.qcom.wifi.sh
 
 # Thermal config
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/thermal-engine.conf:system/etc/thermal-engine-8974.conf
+PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/thermal-engine.conf:system/etc/thermal-engine-8974.conf
 
 # USB
-PRODUCT_PACKAGES += \
-    com.android.future.usb.accessory
+PRODUCT_PACKAGES += com.android.future.usb.accessory
 
 # WiFi
 PRODUCT_COPY_FILES += \
@@ -157,18 +155,16 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_PACKAGES += \
     dhcpcd.conf \
-    libwpa_client \
     hostapd \
-    wpa_supplicant \
-    wpa_supplicant.conf \
-    wpa_supplicant_overlay.conf \
-    p2p_supplicant_overlay.conf \
     hostapd_default.conf \
     hostapd.accept \
-    hostapd.deny
-
-PRODUCT_PACKAGES += \
-    wcnss_service
+    hostapd.deny \
+    libwpa_client \
+    p2p_supplicant_overlay.conf \
+    wcnss_service \
+    wpa_supplicant \
+    wpa_supplicant_overlay.conf \
+    wpa_supplicant.conf
 
 # Misc dependency packages
 PRODUCT_PACKAGES += \
@@ -179,12 +175,6 @@ PRODUCT_PACKAGES += \
     libbson \
     libcnefeatureconfig \
     libxml2
-
-# ANT+
-PRODUCT_PACKAGES += \
-    AntHalService \
-    com.dsi.ant.antradio_library \
-    libantradio
 
 # Set default USB interface
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
@@ -223,6 +213,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.qti.sensors.ir_proximity=true
 
+#480 DPI
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.sf.lcd_density=480
+
 # Permissions
 PRODUCT_COPY_FILES += \
     external/ant-wireless/antradio-library/com.dsi.ant.antradio_library.xml:system/etc/permissions/com.dsi.ant.antradio_library.xml \
@@ -247,10 +241,6 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml \
     frameworks/native/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
     frameworks/native/data/etc/android.hardware.wifi.direct.xml:system/etc/permissions/android.hardware.wifi.direct.xml
-
-#480 DPI
-PRODUCT_PROPERTY_OVERRIDES += \
-	ro.sf.lcd_density=480 \
 
 # call the proprietary setup
 $(call inherit-product-if-exists, vendor/pantech/msm8974-common/msm8974-common-vendor.mk)
