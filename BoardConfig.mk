@@ -44,9 +44,6 @@ BOARD_SYSTEMIMAGE_PARTITION_SIZE   := 1073741824
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 13747929088 # 13747945472 - 16384 for crypto footer
 #BOARD_USERDATAIMAGE_PARTITION_SIZE := 3221225472
 
-# Recovery
-TARGET_RECOVERY_FSTAB := device/pantech/ef63s/rootdir/etc/fstab.qcom
-
 # Assert
 TARGET_OTA_ASSERT_DEVICE := ef63s,ef63k,ef63l,IM-A910S,IM-A910K,IM-A910L
 
@@ -56,7 +53,7 @@ TARGET_RELEASETOOLS_EXTENSIONS := device/pantech/ef63s/releasetools
 # inherit from the proprietary version
 -include vendor/pantech/ef63s/BoardConfigVendor.mk
 
-# Revcovery
+# Recovery
 BOARD_HAS_NO_SELECT_BUTTON 		:= true
 BOARD_SUPPRESS_EMMC_WIPE 		:= true
 BOARD_HAS_LARGE_FILESYSTEM 		:= true
@@ -64,11 +61,11 @@ TARGET_USERIMAGES_USE_EXT4 		:= true
 BOARD_RECOVERY_ALWAYS_WIPES 	:= true
 BOARD_RECOVERY_HANDLES_MOUNT 	:= true
 BOARD_USES_MMCUTILS := true
+TARGET_RECOVERY_FSTAB := device/pantech/ef63s/rootdir/etc/fstab.qcom
 
 
 BOARD_RECOVERY_SWIPE 				:= true
 RECOVERY_FSTAB_VERSION 				:= 2
-TARGET_RECOVERY_FSTAB 				:= device/pantech/ef63s/rootdir/etc/fstab.qcom
 TARGET_RECOVERY_PIXEL_FORMAT 		:= "RGBX_8888"
 BOARD_USE_CUSTOM_RECOVERY_FONT 		:= \"roboto_23x41.h\"
 #TARGET_RECOVERY_INITRC 				:= device/pantech/ef63s/recovery/init.twrp.rc
