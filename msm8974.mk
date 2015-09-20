@@ -132,14 +132,14 @@ PRODUCT_BOOT_JARS += qcmediaplayer
 PRODUCT_PACKAGES += power.msm8974
 
 # Rootdir
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/etc/init.crda.sh:system/etc/init.crda.sh \
-    $(LOCAL_PATH)/rootdir/etc/init.qcom.efs.sync.sh:system/etc/init.qcom.efs.sync.sh \
-    $(LOCAL_PATH)/rootdir/etc/init.qcom.fm.sh:system/etc/init.qcom.fm.sh \
-    $(LOCAL_PATH)/rootdir/etc/hsic.control.bt.sh:system/etc/hsic.control.bt.sh \
-    $(LOCAL_PATH)/rootdir/etc/init.qcom.modem_links.sh:system/etc/init.qcom.modem_links.sh \
-    $(LOCAL_PATH)/rootdir/etc/init.qcom.post_boot.sh:system/etc/init.qcom.post_boot.sh \
-    $(LOCAL_PATH)/rootdir/etc/init.qcom.wifi.sh:system/etc/init.qcom.wifi.sh
+PRODUCT_PACKAGES += \
+    hsic.control.bt.sh \
+    init.crda.sh \
+    init.qcom.efs.sync.sh \
+    init.qcom.fm.sh \
+    init.qcom.modem_links.sh \
+    init.qcom.post_boot.sh \
+    init.qcom.wifi.sh
 
 # Thermal config
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/thermal-engine.conf:system/etc/thermal-engine-8974.conf
