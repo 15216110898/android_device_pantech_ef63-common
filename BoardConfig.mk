@@ -45,7 +45,7 @@ BOARD_USERDATAIMAGE_PARTITION_SIZE := 13747929088 # 13747945472 - 16384 for cryp
 #BOARD_USERDATAIMAGE_PARTITION_SIZE := 3221225472
 
 # Recovery
-TARGET_RECOVERY_FSTAB := device/pantech/ef63s/ramdisk/fstab.qcom
+TARGET_RECOVERY_FSTAB := device/pantech/ef63s/rootdir/etc/fstab.qcom
 
 # Assert
 TARGET_OTA_ASSERT_DEVICE := ef63s,ef63k,ef63l,IM-A910S,IM-A910K,IM-A910L
@@ -68,7 +68,7 @@ BOARD_USES_MMCUTILS := true
 
 BOARD_RECOVERY_SWIPE 				:= true
 RECOVERY_FSTAB_VERSION 				:= 2
-TARGET_RECOVERY_FSTAB 				:= device/pantech/ef63s/ramdisk/fstab.qcom
+TARGET_RECOVERY_FSTAB 				:= device/pantech/ef63s/rootdir/etc/fstab.qcom
 TARGET_RECOVERY_PIXEL_FORMAT 		:= "RGBX_8888"
 BOARD_USE_CUSTOM_RECOVERY_FONT 		:= \"roboto_23x41.h\"
 #TARGET_RECOVERY_INITRC 				:= device/pantech/ef63s/recovery/init.twrp.rc
