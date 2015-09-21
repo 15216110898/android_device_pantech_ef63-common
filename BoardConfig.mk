@@ -45,52 +45,24 @@ CM_DTS_TARGET := 910
 BOARD_NFC_CHIPSET := pn547
 
 # Recovery
-BOARD_HAS_NO_SELECT_BUTTON 		:= true
-BOARD_SUPPRESS_EMMC_WIPE 		:= true
-BOARD_HAS_LARGE_FILESYSTEM 		:= true
-TARGET_USERIMAGES_USE_EXT4 		:= true
-BOARD_RECOVERY_ALWAYS_WIPES 	:= true
-BOARD_RECOVERY_HANDLES_MOUNT 	:= true
-BOARD_USES_MMCUTILS := true
-TARGET_RECOVERY_FSTAB := device/pantech/ef63s/rootdir/etc/fstab.qcom
+BOARD_HAS_NO_SELECT_BUTTON       := true
+BOARD_HAS_LARGE_FILESYSTEM       := true
+BOARD_RECOVERY_ALWAYS_WIPES      := true
+BOARD_RECOVERY_HANDLES_MOUNT     := true
+BOARD_RECOVERY_SWIPE             := true
+BOARD_SUPPRESS_EMMC_WIPE         := true
+BOARD_SUPPRESS_SECURE_ERASE      := true
+BOARD_USE_CUSTOM_RECOVERY_FONT   := \"roboto_23x41.h\"
+BOARD_USES_MMCUTILS              := true
+RECOVERY_FSTAB_VERSION           := 2
+TARGET_RECOVERY_FSTAB            := $(LOCAL_PATH)/rootdir/etc/fstab.qcom
+TARGET_RECOVERY_PIXEL_FORMAT     := "RGBX_8888"
+TARGET_USERIMAGES_USE_EXT4       := true
 
+# Recovery TW
+-include device/pantech/ef63s/twr.mk
 
-BOARD_RECOVERY_SWIPE 				:= true
-RECOVERY_FSTAB_VERSION 				:= 2
-TARGET_RECOVERY_PIXEL_FORMAT 		:= "RGBX_8888"
-BOARD_USE_CUSTOM_RECOVERY_FONT 		:= \"roboto_23x41.h\"
-#TARGET_RECOVERY_INITRC 				:= device/pantech/ef63s/recovery/init.twrp.rc
-
-#TW_CUSTOM_THEME 					:= device/pantech/ef63s/recovery/res
-
-
-DEVICE_RESOLUTION 					:= 1080x1920
-RECOVERY_GRAPHICS_USE_LINELENGTH 	:= true
-PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
-TW_FLASH_FROM_STORAGE 				:= true
-RECOVERY_SDCARD_ON_DATA 			:= true
-#TW_HAS_NO_RECOVERY_PARTITION 		:= true
-TW_FLASH_FROM_STORAGE 				:= true
-TW_EXTERNAL_STORAGE_PATH 			:= "/sdcard1"
-TW_EXTERNAL_STORAGE_MOUNT_POINT 	:= "sdcard1"
-TW_DEFAULT_EXTERNAL_STORAGE 		:= true
-# TW_INCLUDE_CRYPTO 				:= true
-TW_INCLUDE_JB_CRYPTO 				:= true
-TW_CRYPTO_FS_TYPE 					:= "ext4"
-TW_CRYPTO_REAL_BLKDEV 				:= "/dev/block/platform/msm_sdcc.1/by-name/userdata"
-TW_CRYPTO_MNT_POINT 				:= "/data"
-TW_CRYPTO_FS_OPTIONS 				:= "nosuid,nodev,barrier=1,noauto_da_alloc,discard"
-TW_CRYPTO_KEY_LOC 					:= "/persist/metadata"
-TW_INCLUDE_FUSE_EXFAT 				:= true
-#TW_BOARD_CUSTOM_GRAPHICS 			:= ../../../device/pantech/ef60s/recovery/twrpgraphics.c
-TW_BRIGHTNESS_PATH 					:= /sys/class/leds/lcd-backlight/brightness
-TW_MAX_BRIGHTNESS 					:= 100
-
-TW_NO_SCREEN_TIMEOUT 				:= true
-
-TARGET_RECOVERY_QCOM_RTC_FIX 		:= true
-BOARD_SUPPRESS_SECURE_ERASE 		:= true
-#TW_TARGET_USES_QCOM_BSP				:= true
+PRODUCT_BUILD_PROP_OVERRIDES     += BUILD_UTC_DATE=0
 
 # Releasetools
 TARGET_RELEASETOOLS_EXTENSIONS := device/pantech/ef63s/releasetools
