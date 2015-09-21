@@ -38,7 +38,8 @@ BOARD_USERDATAIMAGE_PARTITION_SIZE := 13747929088 # 13747945472 - 16384 for cryp
 
 # Kernel
 BOARD_KERNEL_CMDLINE := console=NULL,115200,n8 androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 ehci-hcd.park=3 vmalloc=260M loglevel=0 androidboot.selinux=permissive
-TARGET_KERNEL_CONFIG := cyanogenmod_A910_defconfig
+TARGET_KERNEL_CONFIG := ef63s_defconfig
+TARGET_KERNEL_SOURCE := kernel/pantech/ef63-common
 CM_DTS_TARGET := 910
 
 # NFC
