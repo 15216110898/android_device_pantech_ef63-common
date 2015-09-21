@@ -22,14 +22,14 @@ TARGET_SCREEN_HEIGHT := 1920
 TARGET_SCREEN_WIDTH := 1080
 
 # Rootdir
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/etc/fstab.qcom:root/fstab.qcom \
-    $(LOCAL_PATH)/rootdir/etc/init.qcom.rc:root/init.qcom.rc \
-    $(LOCAL_PATH)/rootdir/etc/init.qcom.sh:root/init.qcom.sh \
-    $(LOCAL_PATH)/rootdir/etc/init.target.rc:root/init.target.rc \
-    $(LOCAL_PATH)/rootdir/etc/init.pantech.usb.rc:root/init.pantech.usb.rc \
-    $(LOCAL_PATH)/rootdir/etc/init.pantech.usb.sh:root/init.pantech.usb.sh \
-    $(LOCAL_PATH)/rootdir/etc/ueventd.qcom.rc:root/ueventd.qcom.rc
+PRODUCT_PACKAGES += \
+    fstab.qcom \
+    init.qcom.rc \
+    init.qcom.sh \
+    init.target.rc \
+    init.pantech.usb.rc \
+    init.pantech.usb.sh \
+    ueventd.qcom.rc
 
 # Audio
 PRODUCT_COPY_FILES += \
