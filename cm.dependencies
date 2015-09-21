@@ -1,0 +1,11 @@
+[
+  {
+    "repository": "android_kernel_pantech_ef63-common",
+    "target_path": "kernel/pantech/ef63-common,
+    "branch": "ef63/cm-12.1"
+  },
+  {
+    "repository": "android_device_pantech_msm8974-common",
+    "target_path": "device/pantech/msm8974-common"
+  }
+]
