@@ -56,7 +56,7 @@ BOARD_SUPPRESS_SECURE_ERASE      := true
 BOARD_USE_CUSTOM_RECOVERY_FONT   := \"roboto_23x41.h\"
 BOARD_USES_MMCUTILS              := true
 RECOVERY_FSTAB_VERSION           := 2
-TARGET_RECOVERY_FSTAB            := $(LOCAL_PATH)/rootdir/etc/fstab.qcom
+TARGET_RECOVERY_FSTAB            := device/pantech/ef63s/rootdir/etc/fstab.qcom
 TARGET_RECOVERY_PIXEL_FORMAT     := "RGBX_8888"
 TARGET_USERIMAGES_USE_EXT4       := true
 
