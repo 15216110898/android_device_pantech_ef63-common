@@ -32,7 +32,7 @@
 #include <string.h>
 #include <unistd.h>
 #include <cutils/log.h>
-#include <cutils/android_reboot.h>
+//#include <cutils/android_reboot.h>
 
 #include "vendor_init.h"
 #include "property_service.h"
@@ -52,7 +52,7 @@ void init_msm_properties(unsigned long msm_id, unsigned long msm_ver, char *boar
     	unsigned char tmp_buf[200];
 	unsigned char sw_buf[10];
 	unsigned char device_buf[10];
-	char author[PROP_VALUE_MAX];//Rom author
+	//char author[PROP_VALUE_MAX];//Rom author
 	int n = 0;
 
 	//Android Versions
@@ -74,7 +74,7 @@ void init_msm_properties(unsigned long msm_id, unsigned long msm_ver, char *boar
         return;
 
 	//For device info      
-    fp = fopen("/dev/block/platform/msm_sdcc.1/by-name/rawdata", "r");
+    fp = fopen("/dev/block/platform/msm_sdcc.1/by-name/phoneinfo", "r");
     if ( fp == NULL )
     {
         ALOGD("Failed to open info for board version read");
