@@ -32,6 +32,7 @@
 #include <string.h>
 #include <unistd.h>
 #include <cutils/log.h>
+#include <cutils/android_reboot.h>
 
 #include "vendor_init.h"
 #include "property_service.h"
@@ -48,20 +49,32 @@ void init_msm_properties(unsigned long msm_id, unsigned long msm_ver, char *boar
     char devicename[PROP_VALUE_MAX];
     int rc;
     FILE *fp = NULL;
-    unsigned char tmp_buf[200];
+    	unsigned char tmp_buf[200];
 	unsigned char sw_buf[10];
 	unsigned char device_buf[10];
+	char author[PROP_VALUE_MAX];//Rom author
 	int n = 0;
+
+	//Android Versions
+	char android_ver[PROP_VALUE_MAX];
+	char build_id[PROP_VALUE_MAX];
+	property_get("ro.build.version.release", android_ver);
+	property_get("ro.build.id", build_id);
+
 
     UNUSED(msm_id);
     UNUSED(msm_ver);
     UNUSED(board_type);
 
+	//Prop for ril class
+	//property_set("ro.telephony.ril_class", "SkyHLRIL");
+
     rc = property_get("ro.board.platform", platform);
     if (!rc || !ISMATCH(platform, ANDROID_TARGET))
         return;
-        
-    fp = fopen("/dev/block/platform/msm_sdcc.1/by-name/phoneinfo", "r");
+
+	//For device info      
+    fp = fopen("/dev/block/platform/msm_sdcc.1/by-name/rawdata", "r");
     if ( fp == NULL )
     {
         ALOGD("Failed to open info for board version read");
@@ -82,31 +95,30 @@ void init_msm_properties(unsigned long msm_id, unsigned long msm_ver, char *boar
     
     
 
-	sprintf(tmp_buf,"diszell2008/VEGA/%s:4.4.4/KTU84P/%s:user/release-keys",device_buf, sw_buf);
-    property_set("ro.build.fingerprint", tmp_buf);
-    property_set("ro.product.model", device_buf);
+	sprintf(tmp_buf,"VEGAVIET/%s:%s/%s/%s:user/release-keys", device_buf, android_ver, build_id, sw_buf);
+	property_set("ro.build.fingerprint", tmp_buf);
+	property_set("ro.product.model", device_buf);
     
     if(!strncmp(device_buf, "IM-A910S", 8))
     {
-    	sprintf(tmp_buf,"cm_ef63s-userdebug 4.4.4 KTU84P %s release-keys", sw_buf);
+    	sprintf(tmp_buf,"ef63s-userdebug %s %s %s release-keys", android_ver, build_id, sw_buf);
     	property_set("ro.product.device", "ef63s");
     }
     else if(!strncmp(device_buf, "IM-A910K", 8))
    	{
-    	sprintf(tmp_buf,"cm_ef63k-userdebug 4.4.4 KTU84P %s release-keys", sw_buf);
+    	sprintf(tmp_buf,"ef63k-userdebug %s %s %s release-keys", android_ver, build_id, sw_buf);
     	property_set("ro.product.device", "ef63k");
     }
     else if(!strncmp(device_buf, "IM-A910L", 8))
     {
-    	sprintf(tmp_buf,"cm_ef63l-userdebug 4.4.4 KTU84P %s release-keys", sw_buf);
+    	sprintf(tmp_buf,"ef63l-userdebug %s %s %s release-keys", android_ver, build_id, sw_buf);
     	property_set("ro.product.device", "ef63l");
     }
     else
     {
-    	sprintf(tmp_buf,"cm_ef63s-userdebug 4.4.4 KTU84P S0223215 release-keys");
-    	property_set("ro.product.device", "ef63s");
+    	sprintf(tmp_buf,"a910-userdebug %s %s %s release-keys", android_ver, build_id, sw_buf);
+    	property_set("ro.product.device", "a910");
     }
     	
     property_set("ro.build.description", tmp_buf);      
 }
-
