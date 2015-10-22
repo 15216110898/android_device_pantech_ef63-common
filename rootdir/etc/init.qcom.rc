@@ -72,11 +72,9 @@ on early-boot
     chown system system /sys/class/graphics/fb0/sharpness_ctl
     chmod 0664 /sys/class/graphics/fb0/sharpness_ctl
     chown radio system /sys/class/graphics/fb0/back_ctl
-    chmod 0664 /sys/class/graphics/fb0/back_ctl		
+    chmod 0664 /sys/class/graphics/fb0/back_ctl
     chown system system /sys/class/graphics/fb0/hbm_ctl
     chmod 0664 /sys/class/graphics/fb0/hbm_ctl
-    chown system system /sys/devices/virtual/graphics/fb0/aco
-    chmod 0660 /sys/devices/virtual/graphics/fb0/aco
 
 
     # Allow subsystem (modem etc) debugging
