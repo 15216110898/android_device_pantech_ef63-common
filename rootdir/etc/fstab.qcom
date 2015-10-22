@@ -14,5 +14,5 @@
 /dev/block/platform/msm_sdcc.1/by-name/boot        /boot        emmc    defaults                                                   recoveryonly
 /dev/block/platform/msm_sdcc.1/by-name/recovery    /recovery    emmc    defaults                                                   recoveryonly
 
-/devices/msm_sdcc.2/mmc_host                       auto         auto    nosuid,nodev                                               wait,voldmanaged=sdcard1:auto
-/devices/platform/xhci-hcd/usb1                    auto         auto    nosuid,nodev                                               wait,voldmanaged=usbdisk:auto
+/devices/msm_sdcc.2/mmc_host*                      auto         auto    nosuid,nodev                                               wait,voldmanaged=sdcard1:auto
+/devices/platform/xhci-hcd/usb1*                   auto         auto    nosuid,nodev                                               wait,voldmanaged=usbdisk:auto
