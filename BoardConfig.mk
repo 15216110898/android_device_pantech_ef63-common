@@ -81,7 +81,7 @@ BOARD_CHARGER_RES := device/pantech/ef63s/charger/images
 BOARD_HARDWARE_CLASS := device/pantech/ef63s/cmhw
 
 # Encryption
-#TARGET_HW_DISK_ENCRYPTION := true
+TARGET_HW_DISK_ENCRYPTION := true
 
 # Filesystem
 BOARD_FLASH_BLOCK_SIZE := 131072
