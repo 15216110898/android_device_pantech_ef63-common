@@ -268,7 +268,7 @@ case "$target" in
       if [ -f $/data/misc/wifi/WCNSS_qcom_cfg.ini ] ; then
         rm /data/misc/wifi/WCNSS_qcom_cfg.ini
       fi
-      cp /system/etc/firmware/wlan/prima/WCNSS_qcom_cfg_orgi.ini /data/misc/wifi/WCNSS_qcom_cfg.ini
+      cp /system/etc/firmware/wlan/prima/WCNSS_qcom_cfg.ini /data/misc/wifi/WCNSS_qcom_cfg.ini
       chmod 0660 /data/misc/wifi/WCNSS_qcom_cfg.ini
       chown system.wifi /data/misc/wifi/WCNSS_qcom_cfg.ini
       sync
