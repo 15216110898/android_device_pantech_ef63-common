@@ -295,5 +295,3 @@ $(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-2048-dalv
 # call hwui memory config
 $(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-2048-hwui-memory.mk)
 
-# call the proprietary setup
-$(call inherit-product-if-exists, vendor/pantech/ef63s/ef63s-vendor.mk)
