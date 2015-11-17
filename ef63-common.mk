@@ -15,7 +15,7 @@
 #
 
 # overlays
-DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
+DEVICE_PACKAGE_OVERLAYS += ef63-common/overlay
 
 # Boot animation
 TARGET_SCREEN_HEIGHT := 1920
@@ -40,17 +40,17 @@ PRODUCT_PACKAGES += \
 
 # Audio
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/audio/audio_policy.conf:system/etc/audio_policy.conf \
-    $(LOCAL_PATH)/audio/mixer_paths.xml:system/etc/mixer_paths.xml\
-    $(LOCAL_PATH)/audio/audio_effects.conf:system/vendor/etc/audio_effects.conf \
-    $(LOCAL_PATH)/audio/audio_platform_info.xml:system/etc/audio_platform_info.xml \
-    $(LOCAL_PATH)/audio/acdb/MTP_Bluetooth_cal.acdb:system/etc/acdbdata/MTP/MTP_Bluetooth_cal.acdb \
-    $(LOCAL_PATH)/audio/acdb/MTP_General_cal.acdb:system/etc/acdbdata/MTP/MTP_General_cal.acdb \
-    $(LOCAL_PATH)/audio/acdb/MTP_Global_cal.acdb:system/etc/acdbdata/MTP/MTP_Global_cal.acdb \
-    $(LOCAL_PATH)/audio/acdb/MTP_Handset_cal.acdb:system/etc/acdbdata/MTP/MTP_Handset_cal.acdb \
-    $(LOCAL_PATH)/audio/acdb/MTP_Hdmi_cal.acdb:system/etc/acdbdata/MTP/MTP_Hdmi_cal.acdb \
-    $(LOCAL_PATH)/audio/acdb/MTP_Headset_cal.acdb:system/etc/acdbdata/MTP/MTP_Headset_cal.acdb \
-    $(LOCAL_PATH)/audio/acdb/MTP_Speaker_cal.acdb:system/etc/acdbdata/MTP/MTP_Speaker_cal.acdb
+    ef63-common/audio/audio_policy.conf:system/etc/audio_policy.conf \
+    ef63-common/audio/mixer_paths.xml:system/etc/mixer_paths.xml\
+    ef63-common/audio/audio_effects.conf:system/vendor/etc/audio_effects.conf \
+    ef63-common/audio/audio_platform_info.xml:system/etc/audio_platform_info.xml \
+    ef63-common/audio/acdb/MTP_Bluetooth_cal.acdb:system/etc/acdbdata/MTP/MTP_Bluetooth_cal.acdb \
+    ef63-common/audio/acdb/MTP_General_cal.acdb:system/etc/acdbdata/MTP/MTP_General_cal.acdb \
+    ef63-common/audio/acdb/MTP_Global_cal.acdb:system/etc/acdbdata/MTP/MTP_Global_cal.acdb \
+    ef63-common/audio/acdb/MTP_Handset_cal.acdb:system/etc/acdbdata/MTP/MTP_Handset_cal.acdb \
+    ef63-common/audio/acdb/MTP_Hdmi_cal.acdb:system/etc/acdbdata/MTP/MTP_Hdmi_cal.acdb \
+    ef63-common/audio/acdb/MTP_Headset_cal.acdb:system/etc/acdbdata/MTP/MTP_Headset_cal.acdb \
+    ef63-common/audio/acdb/MTP_Speaker_cal.acdb:system/etc/acdbdata/MTP/MTP_Speaker_cal.acdb
 
 PRODUCT_PACKAGES += \
     audiod \
@@ -92,7 +92,7 @@ PRODUCT_PACKAGES += \
     charger_res_images
 
 # Check Firmware
-PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/check.sh:system/bin/check.sh
+PRODUCT_COPY_FILES += ef63-common/configs/check.sh:system/bin/check.sh
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
@@ -104,10 +104,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += gps.msm8974
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/gps/gps.conf:system/etc/gps.conf \
-    $(LOCAL_PATH)/gps/flp.conf:system/etc/flp.conf \
-    $(LOCAL_PATH)/gps/izat.conf:system/etc/izat.conf \
-    $(LOCAL_PATH)/gps/sap.conf:system/etc/sap.conf
+    ef63-common/gps/gps.conf:system/etc/gps.conf \
+    ef63-common/gps/flp.conf:system/etc/flp.conf \
+    ef63-common/gps/izat.conf:system/etc/izat.conf \
+    ef63-common/gps/sap.conf:system/etc/sap.conf
 
 # Graphics
 PRODUCT_PACKAGES += \
@@ -118,28 +118,28 @@ PRODUCT_PACKAGES += \
     liboverlay
 
 # IPC router config
-PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/sec_config:system/etc/sec_config
+PRODUCT_COPY_FILES += ef63-common/configs/sec_config:system/etc/sec_config
 
 #Keylayout
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/keylayout/atmel_mxt_540s.kl:system/usr/keylayout/atmel_mxt_540s.kl \
-    $(LOCAL_PATH)/keylayout/cr-tk-300k.kl:system/usr/keylayout/cr-tk-300k.kl \
-    $(LOCAL_PATH)/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
-    $(LOCAL_PATH)/keylayout/stmicro_fts_ts.kl:system/usr/keylayout/stmicro_fts_ts.kl
+    ef63-common/keylayout/atmel_mxt_540s.kl:system/usr/keylayout/atmel_mxt_540s.kl \
+    ef63-common/keylayout/cr-tk-300k.kl:system/usr/keylayout/cr-tk-300k.kl \
+    ef63-common/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
+    ef63-common/keylayout/stmicro_fts_ts.kl:system/usr/keylayout/stmicro_fts_ts.kl
 
 # Keystore
 PRODUCT_PACKAGES += keystore.msm8974
 
 # Lights
-PRODUCT_COPY_FILES += $(LOCAL_PATH)/liblight/lights.msm8974.so:system/lib/hw/lights.msm8974.so
+PRODUCT_COPY_FILES += ef63-common/liblight/lights.msm8974.so:system/lib/hw/lights.msm8974.so
 
 # Media profile
 PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml \
-    $(LOCAL_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml \
-    $(LOCAL_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml
+    ef63-common/configs/media_codecs.xml:system/etc/media_codecs.xml \
+    ef63-common/configs/media_profiles.xml:system/etc/media_profiles.xml
 
 # Media
 PRODUCT_PACKAGES += \
@@ -170,9 +170,9 @@ PRODUCT_PACKAGES += \
     com.android.nfc_extras
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/libnfc-brcm.conf:system/etc/libnfc-brcm.conf \
-    $(LOCAL_PATH)/configs/nfcee_access.xml:system/etc/nfcee_access.xml \
-    $(LOCAL_PATH)/configs/libnfc-nxp.conf:system/etc/libnfc-nxp.conf 
+    ef63-common/configs/libnfc-brcm.conf:system/etc/libnfc-brcm.conf \
+    ef63-common/configs/nfcee_access.xml:system/etc/nfcee_access.xml \
+    ef63-common/configs/libnfc-nxp.conf:system/etc/libnfc-nxp.conf 
 
 # NFC Permissions
 PRODUCT_COPY_FILES += \
@@ -184,16 +184,16 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += power.msm8974
 
 # Thermal config
-PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/thermal-engine.conf:system/etc/thermal-engine-8974.conf
+PRODUCT_COPY_FILES += ef63-common/configs/thermal-engine.conf:system/etc/thermal-engine-8974.conf
 
 # USB
 PRODUCT_PACKAGES += com.android.future.usb.accessory
 
 # WiFi
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/wifi/WCNSS_cfg.dat:system/etc/firmware/wlan/prima/WCNSS_cfg.dat \
-    $(LOCAL_PATH)/wifi/WCNSS_qcom_cfg.ini:system/etc/wifi/WCNSS_qcom_cfg.ini \
-    $(LOCAL_PATH)/wifi/WCNSS_qcom_wlan_nv.bin:system/etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin
+    ef63-common/wifi/WCNSS_cfg.dat:system/etc/firmware/wlan/prima/WCNSS_cfg.dat \
+    ef63-common/wifi/WCNSS_qcom_cfg.ini:system/etc/wifi/WCNSS_qcom_cfg.ini \
+    ef63-common/wifi/WCNSS_qcom_wlan_nv.bin:system/etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin
 
 PRODUCT_PACKAGES += \
     dhcpcd.conf \

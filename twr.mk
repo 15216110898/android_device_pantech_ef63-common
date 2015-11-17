@@ -3,10 +3,10 @@
 DEVICE_RESOLUTION                := 1080x1920
 RECOVERY_GRAPHICS_USE_LINELENGTH := true
 RECOVERY_SDCARD_ON_DATA          := true
-#TARGET_RECOVERY_INITRC          := device/pantech/ef63s/recovery/init.twrp.rc
+#TARGET_RECOVERY_INITRC          := device/pantech/ef63-common/recovery/init.twrp.rc
 TARGET_RECOVERY_QCOM_RTC_FIX     := true
-#TW_BOARD_CUSTOM_GRAPHICS        := ../../../device/pantech/ef63s/recovery/twrpgraphics.c
-#TW_CUSTOM_THEME                 := device/pantech/ef63s/recovery/res
+#TW_BOARD_CUSTOM_GRAPHICS        := ../../../device/pantech/ef63-common/recovery/twrpgraphics.c
+#TW_CUSTOM_THEME                 := device/pantech/ef63-common/recovery/res
 TW_FLASH_FROM_STORAGE            := true
 #TW_HAS_NO_RECOVERY_PARTITION    := true
 TW_FLASH_FROM_STORAGE            := true

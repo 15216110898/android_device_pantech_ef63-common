@@ -18,7 +18,7 @@
 #-include device/pantech/common/BoardConfigCommon.mk
 
 # Include path
-TARGET_SPECIFIC_HEADER_PATH := device/pantech/ef63s/include
+TARGET_SPECIFIC_HEADER_PATH := device/pantech/ef63-common/include
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := MSM8974
@@ -41,7 +41,7 @@ TARGET_USE_QCOM_BIONIC_OPTIMIZATION := true
 TARGET_OTA_ASSERT_DEVICE := ef63s,ef63k,ef63l,IM-A910S,IM-A910K,IM-A910L
 
 # Kernel
-BOARD_CUSTOM_BOOTIMG_MK := device/pantech/ef63s/mkbootimg.mk
+BOARD_CUSTOM_BOOTIMG_MK := device/pantech/ef63-common/mkbootimg.mk
 BOARD_KERNEL_CMDLINE := console=NULL,115200,n8 androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 ehci-hcd.park=3 vmalloc=260M loglevel=0 androidboot.selinux=permissive
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 2048
@@ -60,7 +60,7 @@ BOARD_USES_ALSA_AUDIO := true
 AUDIO_FEATURE_ENABLED_MULTI_VOICE_SESSIONS := true
 
 # Bluetooth
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/pantech/ef63s/bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/pantech/ef63-common/bluetooth
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_QCOM := true
 QCOM_BT_USE_SMD_TTY := true
@@ -74,10 +74,10 @@ USE_DEVICE_SPECIFIC_CAMERA := true
 COMMON_GLOBAL_CFLAGS += -DPANTECH_CAMERA_HARDWARE
 
 # Charger
-BOARD_CHARGER_RES := device/pantech/ef63s/charger/images
+BOARD_CHARGER_RES := device/pantech/ef63-common/charger/images
 
 # CM Hardware
-BOARD_HARDWARE_CLASS := device/pantech/ef63s/cmhw
+BOARD_HARDWARE_CLASS := device/pantech/ef63-common/cmhw
 
 # Encryption
 TARGET_HW_DISK_ENCRYPTION := true
@@ -141,17 +141,17 @@ BOARD_SUPPRESS_SECURE_ERASE      := true
 BOARD_USE_CUSTOM_RECOVERY_FONT   := \"roboto_23x41.h\"
 BOARD_USES_MMCUTILS              := true
 RECOVERY_FSTAB_VERSION           := 2
-TARGET_RECOVERY_FSTAB            := device/pantech/ef63s/rootdir/etc/fstab.qcom
+TARGET_RECOVERY_FSTAB            := device/pantech/ef63-common/rootdir/etc/fstab.qcom
 TARGET_RECOVERY_PIXEL_FORMAT     := "RGBX_8888"
 TARGET_USERIMAGES_USE_EXT4       := true
 
 # Recovery TW
--include device/pantech/ef63s/twr.mk
+-include device/pantech/ef63-common/twr.mk
 
 PRODUCT_BUILD_PROP_OVERRIDES     += BUILD_UTC_DATE=0
 
 # Releasetools
-TARGET_RELEASETOOLS_EXTENSIONS := device/pantech/ef63s/releasetools
+TARGET_RELEASETOOLS_EXTENSIONS := device/pantech/ef63-common/releasetools
 
 # QCOM hardware
 BOARD_USES_QCOM_HARDWARE := true
@@ -174,12 +174,12 @@ USE_MINIKIN := true
 include device/qcom/sepolicy/sepolicy.mk
 
 BOARD_SEPOLICY_DIRS += \
-        device/pantech/ef63s/sepolicy
+        device/pantech/ef63-common/sepolicy
 
 # Vendor Init
 TARGET_UNIFIED_DEVICE := true
 TARGET_INIT_VENDOR_LIB := libinit_msm
-TARGET_LIBINIT_DEFINES_FILE := device/pantech/ef63s/init/init_ef63.c
+TARGET_LIBINIT_DEFINES_FILE := device/pantech/ef63-common/init/init_ef63.c
 
 # Wifi
 BOARD_HAS_QCOM_WLAN              := true

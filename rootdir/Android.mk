@@ -1,7 +1,7 @@
 LOCAL_PATH:= $(call my-dir)
 include $(CLEAR_VARS)
 
-# files that live under device/pantech/ef63s/rootdir/etc/
+# files that live under device/pantech/ef63-common/rootdir/etc/
 
 include $(CLEAR_VARS)
 LOCAL_MODULE       := fstab.qcom
