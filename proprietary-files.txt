@@ -32,7 +32,7 @@ vendor/lib/libbtnv.so
 # Camera
 bin/mm-qcamera-app
 bin/mm-qcamera-daemon
-lib/hw/camera.msm8974.so:lib/hw/camera.vendor.msm8974.so
+lib/hw/camera.msm8974.so:lib/hw/camera.msm8974.so
 lib/libmm-qcamera.so
 lib/libmmcamera_interface.so
 lib/libmmcamera_rohm_eeprom.so
