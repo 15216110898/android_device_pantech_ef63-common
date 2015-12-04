@@ -227,10 +227,6 @@ PRODUCT_PACKAGES += \
     libcnefeatureconfig \
     libxml2
 
-# Set default USB interface
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    persist.sys.usb.config=mtp
-
 # proprietary wifi display, if available
 ifneq ($(QCPATH),)
 PRODUCT_BOOT_JARS += WfdCommon
