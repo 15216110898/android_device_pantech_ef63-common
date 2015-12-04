@@ -341,8 +341,6 @@ void LocEngAdapter::handleEngineUpEvent()
     sendMsg(new LocEngUp(mOwner));
 }
 
-<<<<<<< HEAD
-=======
 enum loc_api_adapter_err LocEngAdapter::setTime(GpsUtcTime time,
                                                 int64_t timeReference,
                                                 int uncertainty)
@@ -382,4 +380,3 @@ enum loc_api_adapter_err LocEngAdapter::setXtraVersionCheck(int check)
     EXIT_LOG(%d, ret);
     return ret;
 }
->>>>>>> 5bd46d8... g3: gps: Update HAL

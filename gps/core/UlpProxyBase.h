@@ -39,11 +39,7 @@ class UlpProxyBase {
 public:
     inline UlpProxyBase() {}
     inline virtual ~UlpProxyBase() {}
-<<<<<<< HEAD
-    inline virtual bool sendStartFix() { return false;}
-    inline virtual bool sendStopFix() { return false;}
-    inline virtual bool sendFixMode(LocPosMode &params) { return false;}
-=======
+
     inline virtual bool sendStartFix() { mFixSet = true; return false; }
     inline virtual bool sendStopFix() { mFixSet = false; return false; }
     inline virtual bool sendFixMode(LocPosMode &params) {
@@ -51,7 +47,6 @@ public:
         return false;
     }
 
->>>>>>> 5bd46d8... g3: gps: Update HAL
     inline virtual bool reportPosition(UlpLocation &location,
                                        GpsLocationExtended &locationExtended,
                                        void* locationExt,

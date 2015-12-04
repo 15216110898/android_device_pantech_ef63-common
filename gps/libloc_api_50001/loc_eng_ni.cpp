@@ -234,24 +234,14 @@ static void* ni_thread_proc(void *args)
              "pthread_cond_timedwait = %d\n",rc );
     pSession->respRecvd = FALSE; /* Reset the user response flag for the next session*/
 
-<<<<<<< HEAD
-=======
     LOC_LOGD("pSession->resp is %d\n",pSession->resp);
 
->>>>>>> 5bd46d8... g3: gps: Update HAL
     // adding this check to support modem restart, in which case, we need the thread
     // to exit without calling sending data. We made sure that rawRequest is NULL in
     // loc_eng_ni_reset_on_engine_restart()
     LocEngAdapter* adapter = pSession->adapter;
     LocEngInformNiResponse *msg = NULL;
 
-<<<<<<< HEAD
-    if (NULL != loc_eng_ni_data_p->rawRequest) {
-        msg = new LocEngInformNiResponse(adapter,
-                                         loc_eng_ni_data_p->resp,
-                                         loc_eng_ni_data_p->rawRequest);
-        loc_eng_ni_data_p->rawRequest = NULL;
-=======
     if (NULL != pSession->rawRequest) {
         if (pSession->resp != GPS_NI_RESPONSE_IGNORE) {
             LOC_LOGD("pSession->resp != GPS_NI_RESPONSE_IGNORE \n");
@@ -263,7 +253,7 @@ static void* ni_thread_proc(void *args)
             free(pSession->rawRequest);
         }
         pSession->rawRequest = NULL;
->>>>>>> 5bd46d8... g3: gps: Update HAL
+
     }
     pthread_mutex_unlock(&pSession->tLock);
 
