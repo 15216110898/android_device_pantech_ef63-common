@@ -142,6 +142,7 @@ BOARD_USE_CUSTOM_RECOVERY_FONT   := \"roboto_23x41.h\"
 BOARD_USES_MMCUTILS              := true
 RECOVERY_FSTAB_VERSION           := 2
 TARGET_RECOVERY_FSTAB            := device/pantech/ef63-common/rootdir/etc/fstab.qcom
+COMMON_GLOBAL_CFLAGS += -DNO_SECURE_DISCARD
 TARGET_RECOVERY_PIXEL_FORMAT     := "RGBX_8888"
 TARGET_USERIMAGES_USE_EXT4       := true
 
