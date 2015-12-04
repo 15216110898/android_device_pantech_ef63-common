@@ -116,6 +116,10 @@ PRODUCT_PACKAGES += \
     hwcomposer.msm8974 \
     memtrack.msm8974 \
     liboverlay
+    
+# Stlport
+PRODUCT_PACKAGES += \
+    libstlport
 
 # IPC router config
 PRODUCT_COPY_FILES += ef63-common/configs/sec_config:system/etc/sec_config
@@ -183,8 +187,12 @@ PRODUCT_COPY_FILES += \
 # Power
 PRODUCT_PACKAGES += power.msm8974
 
+ # Thermal
+PRODUCT_PACKAGES += \
+    thermanager
+
 # Thermal config
-PRODUCT_COPY_FILES += ef63-common/configs/thermal-engine.conf:system/etc/thermal-engine-8974.conf
+PRODUCT_COPY_FILES += ef63-common/configs/thermanager.xml:system/etc/thermanager.xml
 
 # USB
 PRODUCT_PACKAGES += com.android.future.usb.accessory

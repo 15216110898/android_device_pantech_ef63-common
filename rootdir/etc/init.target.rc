@@ -258,6 +258,12 @@ service qosmgrd /system/bin/qosmgr /system/etc/qosmgr_rules.xml
    user system
    group system
    disabled
+   
+# OSS thermal management
+service thermanager /system/bin/thermanager /system/etc/thermanager.xml
+    class late_start
+    user root
+    group root
 
 service time_daemon /system/bin/time_daemon
    class late_start
