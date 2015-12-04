@@ -183,7 +183,7 @@ BOARD_SEPOLICY_DIRS += \
 # Vendor Init
 TARGET_UNIFIED_DEVICE := true
 TARGET_INIT_VENDOR_LIB := libinit_msm
-TARGET_LIBINIT_DEFINES_FILE := device/pantech/ef63-common/init/init_ef63.c
+#TARGET_LIBINIT_DEFINES_FILE := device/pantech/ef63-common/init/init_ef63.cpp
 
 # Wifi
 BOARD_HAS_QCOM_WLAN              := true
